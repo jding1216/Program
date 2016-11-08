@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>网易云音乐 听见好时光</title>
+
+    <link rel="stylesheet" href="wangyiyun/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="wangyiyun/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="wangyiyun/css/base.css"/>
+    <link rel="stylesheet" href="wangyiyun/wy/css/index.css"/>
+    <script src="wangyiyun/jquery-3.1.0/jquery-3.1.0.min.js"></script>
+    <script src="wangyiyun/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="wangyiyun/images/music.ico"/>
+    <script src="wangyiyun/js/loggedIn.js"></script>
+    <link rel="stylesheet" href="wangyiyun/css/partIndex.css"/>
+    <style type="text/css"></style>
+
+</head>
+<body>
+<!--头部导航开始-->
+<div class="header">
+    <div class="w">
+        <!-- 发现音乐部分-->
+        <div class="nav1">
+            <div class="logo">
+                <h1><a href="javascript:;">网易云音乐</a></h1>
+            </div>
+
+            <div id="nav">
+                <ul>
+                    <li class="find"><a href="javascript:;">发现音乐&nbsp;<div class="show"></div></a></li>
+                    <li><a href="javascript:;">我的音乐&nbsp;<div></div></a></li>
+                    <li class="friend"><a href="javascript:;">朋友&nbsp;<div></div></a></li>
+                    <li class="load">
+                        <a href="javascript:;">下载客户端&nbsp;<div></div></a><span></span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="search">
+                <input type="text" placeholder="单曲歌手/专辑歌单/MV用户"/>
+            </div>
+
+            <div class="login">
+                <div class="dl"></div>
+                <a href="javascript:;">登录</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--导航"推荐"-->
+<div class="nav2 fl" id="nav2">
+    <div class="w">
+        <ul>
+            <li><a href="javascript:;" class="discover">推荐</a></li>
+            <li><a href="javascript:;" class="toplist">排行榜</a></li>
+            <li><a href="javascript:;" class="playlist">歌单</a></li>
+            <li><a href="javascript:;" class="djradio">主播电台</a></li>
+            <li><a href="javascript:;" class="artist">歌手</a></li>
+            <li><a href="javascript:;" class="album">新碟上架</a></li>
+        </ul>
+    </div>
+</div>
+
+<!--轮播图-->
+<div class="main">
+    <div class="w">
+        <!-- 背景图片颜色设置 -->
+        <div class="box" id="scroll">
+            <ul id="img_box" class="img">
+                <li><a href="javascript:;"><img src="wangyiyun/images/1.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="wangyiyun/images/2.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="wangyiyun/images/3.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="wangyiyun/images/4.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="wangyiyun/images/5.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="wangyiyun/images/6.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="wangyiyun/images/7.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="wangyiyun/images/1.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="wangyiyun/images/2.jpg" alt=""/></a></li>
+            </ul>
+            <ul id="circle_box" class="circle">
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">6</a></li>
+                <li><a href="#">7</a></li>
+            </ul>
+
+        </div>
+        <!-- 下载客户端 -->
+
+        <div class="download">
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+
+        <!-- 左右边角 -->
+        <div class="arrow">
+            <a href="javascript:;" class="arrow_l"><</a>
+            <a href="javascript:;" class="arrow_r">></a>
+        </div>
+</div>
+
+<script type="text/javascript">
+    // 导航部分点击样式
+    var divs = document.getElementById("nav").getElementsByTagName("div");
+    var a = document.getElementById("nav").getElementsByTagName("a");
+    for(var x = 0; x < divs.length; x++){
+        a[x].index = x;
+        a[x].onclick = function () {
+            for(var y = 0; y < divs.length; y++){
+                a[y].style.background = "url('./images/topbar.png') -1px -300px no-repeat";
+                divs[y].className = "";
+            }
+//            a[this.index].style.background = "url('./images/topbar.png') -1px -155px no-repeat";
+            a[this.index].style.cssText = "background: url('./images/topbar.png') -1px -155px no-repeat !important";
+            divs[this.index].className = "show";
+        }
+    }
+
+    // 轮播图设置
+//    var bg = document.getElementById("bg");
+    var imgBox = document.getElementById("img_box"); // 图片
+    var imgArr = imgBox.getElementsByTagName("li");
+    var circleBox = document.getElementById("circle_box"); // 小圆点
+    var circleArr = circleBox.getElementsByTagName("a");
+
+    var leader = 0, target = 0;
+    var num = 0;
+    var timer1 = null;
+    var timer2 = null;
+    var timer3 = null;
+
+    //定时器的使用原则: 打开一个定时器前,必须关闭其他定时器,两个定时器同时打开会受到影响
+
+    // autoPlay 延时定时器 timer1
+    timer1 = setInterval(autoPlay, 20); // 20ms:表示图片移动速度
+    function autoPlay(){
+        num = num - 10; //每20ms图片移动的距离
+        num <= -5110 ? num = 0 : num; //判断:如果7张图片都移动完毕,就从第一张开始;否则从当前图片开始移动
+        imgBox.style.left = num + "px"; // 像左移动的距离(数字+单位)
+
+        if (num % 730 == 0){ //一张图片全部移动结束时,暂停3000ms
+            clearInterval(timer1); // 清除timer1,开启timer2
+            // 延时自动播放定时器 timer2
+            timer2 = setTimeout(function () {
+                timer1 = setInterval(autoPlay, 20);
+            }, 3000); // 3000ms后再次开启定时器timer1
+        }
+    }
+
+    for (var i = 0; i < 7; i++){
+        circleArr[i].onclick = function () {
+            //当点击小圆点时要跳转到对应的图片,所以先清除所有定时器的影响
+            clearInterval(timer1);
+            clearTimeout(timer2);
+            clearInterval(timer3);//点击一次清除一次,否则点击之后轮播图会混乱
+            clearInterval(timer4);
+            target = (-this.innerHTML + 1) * 730;//图片是向左移动,+1才能得到目标图片,否则得到的是目标图片后一张图片
+            num = target; // 图片移动
+
+            //方法一
+            /*
+            timer3 = setInterval(function () {
+                if (Math.floor(leader) == target || parseInt(leader) == target){
+                    clearInterval(timer3);//先关闭timer3,再打开timer2
+                    timer2 = setTimeout(function () {
+                        timer1 = setInterval(autoPlay, 20);
+                    }, 3000)
+                }else {
+                    leader = leader + (target - leader) / 10;
+                    imgBox.style.left = num + "px"; //直接跳转到目标图片
+//                    imgBox.style.left = leader + "px"; //缓动
+                }
+//                console.log(leader);
+            }, 20);//20ms:点击圆点图片跳转速度
+            return false;
+            */
+            // 方法二:
+            timer3 = setInterval(function () {
+                leader = leader + (target - leader) / 10;
+                imgBox.style.left = leader + "px";
+            },20);
+            timer4 = setInterval(function () {
+                clearInterval(timer3);
+                timer1 = setInterval(autoPlay, 20);
+            },3000);
+        }
+    }
+</script>
+
+
+<!--登录注册-->
+<!--登录首页面-->
+<div id="login">
+    <div class="hea">登录<span class="close" id="close">×</span></div>
+    <div class="center">
+        <div class="leftside">
+            <div> <img src="wangyiyun/work/images/login.png" alt="" class="fl"/>
+                <button class="singin fl" id="mobile_login">手机号登录</button>
+                <button class="log fl" id="log">注册</button>
+            </div>
+        </div>
+        <div class="rightside">
+            <!--<img src="images/others.png" alt=""/>-->
+        </div>
+    </div>
+    <div class="footer">
+        <a href="#">腾讯微博登录<span>></span></a>
+    </div>
+</div>
+
+<!--手机号登录界面-->
+<div class="phone" id="phone_login">
+    <div class="hea">手机号登录<span class="close">×</span></div>
+    <div>
+        <p class="detail"></p>
+        <form class="p_from">
+
+            <input type="text" id="phone_number" placeholder="请输入手机号码" class="phone_even"/><br><br>
+
+            <input type="password" placeholder="请输入密码" id="password" class="pwd"/><br><br>
+
+            <label><input type="checkbox" class="special"/>自动登录</label>
+
+            <a href="#">忘记密码？</a>
+
+            <input type="submit" value="登录" class="submit" id="submit"/>
+        </form>
+    </div>
+    <div class="footer">
+        <a href="#" class="f" id="other_login"><span><</span>使用其它方式登录</a>
+        <a href="#" class="r" id="no_phone">没有账号？免费注册<span>></span></a>
+    </div>
+</div>
+
+<!--手机号注册-->
+<div class="mobil phone" id="mobile">
+    <div class="hea">手机号注册<span class="close">×</span></div>
+    <div>
+        <p class="detail"></p>
+        <form class="p_from">
+
+            <label>手机号：</label>
+            <p class="number">
+                <i>+86</i>
+                <input type="text" id="phone_sin" placeholder="输入手机号码" class="phone_even"/>
+            </p>
+            <label>密码：</label>
+            <p class="key">
+                <input type="password" id="password_sin" placeholder="设置密码，不少于6位数" class="pwd"/>
+            </p>
+            <input type="submit" class="submit" value="注册" id="submit_sin"/>
+        </form>
+
+    </div>
+    <div class="footer">
+        <a href="#" class="f" id="back"><span><</span>返回登录</a>
+    </div>
+</div>
+
+<!--轮播图之后-->
+
+<content class="showInfo">
+    <div class="c">
+        <div class="left">
+            <div class="mainly">
+                <div class="m_nav">
+                    <h3><em></em>热门推荐</h3>
+                    <div class="tab">
+                        <a href="#">华语</a>
+                        <span>|</span>
+                        <a href="#">流行</a>
+                        <span>|</span>
+                        <a href="#">摇滚</a>
+                        <span>|</span>
+                        <a href="#">民谣</a>
+                        <span>|</span>
+                        <a href="#">电子</a>
+                    </div>
+                    <span class="more">
+                        <a href="#">更多</a>
+                        <em></em>
+                    </span>
+                    <!-- 推荐与电台 -->
+                </div>
+                <ul>
+                    <li>
+                        <div>
+                            <img src="wangyiyun/images/b1.jpg" alt=""/>
+                            <a title="华语|提琴奏下絮语故事与深情" href="#">华语 | 提琴奏下絮语故事与深情</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="wangyiyun/images/b2.jpg" alt=""/>
+                            <a title="Chill Soul-迷醉深情，灵魂邂逅" href="#">Chill Soul-迷醉深情，灵魂邂逅</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="wangyiyun/images/b3.jpg" alt=""/>
+                            <a title="从相遇开始走向分别，在回忆里面悉数忘却" href="#">从相遇开始走向分别，在回忆里面悉数忘却</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="wangyiyun/images/b4.jpg" alt=""/>
+                            <a title="浅唱低吟都是歌——法语乐坛10月新歌" href="#"><i></i>浅唱低吟都是歌——法语乐坛10月新歌</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="wangyiyun/images/b5.jpg" alt=""/>
+                            <a title="【窗外细雨看世界 ~人间风情小语种】精选辑" href="#">【窗外细雨看世界 ~人间风情小语种】精选辑</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="wangyiyun/images/b6.jpg" alt=""/>
+                            <a title="有些人匆匆一面，匆匆不见" href="#"><i></i>有些人匆匆一面，匆匆不见</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="wangyiyun/images/b7.jpg" alt=""/>
+                            <a title="「民谣女声」在遇到你之前，我的耳都在沉睡" href="#">「民谣女声」在遇到你之前，我的耳都在沉睡</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="wangyiyun/images/b8.jpg" alt=""/>
+                            <a title="【囧菌翻唱】Treat You Better/我比他更适合你。" href="#"><i></i>【囧菌翻唱】Treat You Better/我比他更适合你。</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- 广告栏-->
+            <div class="adv">
+                <img src="wangyiyun/images/ad.bid.jpg" alt=""/>
+            </div>
+            <div class="new">
+                <div class="head1">
+                    <h3><em></em>新碟上架</h3>
+                     <span class="more">
+                        <a href="#">更多</a>
+                        <em></em>
+                    </span>
+                </div>
+                <!-- 新碟上架-->
+                <div class="newer">
+                    <img src="wangyiyun/images/new.PNG" alt=""/>
+                </div>
+                <!--榜单-->
+                <div class="list">
+                    <div class="hot-list">
+                        <a href="#" class="left1">榜单</a>
+                    <span>
+                        <i class="right-i">&nbsp;</i>
+                        <a href="#" class="right1">更多</a>
+                    </span>
+                    </div>
+                    <div class="all-list">
+                        <audio src="wangyiyun/music/G.E.M.邓紫棋%20-%20泡沫.mp3" id="song"></audio>
+                        <!-- 云音乐飙升榜-->
+                        <dl class="one-list">
+                            <dt>
+                            <div class="img">
+                                <img src="wangyiyun/work/images/one.jpg" alt=""/>
+                                <a href="#" class="bgc">云音乐飙升榜</a>
+                            </div>
+                            <div class="nor">
+                                <a href="#" class="tit">云音乐飙升榜</a>
+
+                                <div>
+                                    <a href="#" class="play" id="all-play-one"></a>
+                                    <a href="#" class="file"></a>
+                                </div>
+                            </div>
+                            </dt>
+                            <dd>
+                                <ul>
+                                    <li class="play-music"><span style="color: red;">1</span>
+                                        <a href="#">G.E.M.邓紫棋 - 泡沫</a>
+
+                                        <div class="cl-fl">
+                                            <a href="#" class="play"></a>
+                                            <a href="#" class="add"></a>
+                                            <a href="#" class="file"></a>
+                                        </div>
+                                    </li>
+                                    <li class="play-music"><span style="color: red;">2</span>
+                                        <a href="#">丁丁 - 爱要坦荡荡</a>
+                                        <!--<audio src="music/丁丁%20-%20爱要坦荡荡.mp3" class="song"></audio>-->
+                                        <div class="cl-fl">
+                                            <a href="#" class="play"></a>
+                                            <a href="#" class="add"></a>
+                                            <a href="#" class="file"></a>
+                                        </div>
+                                    </li>
+                                    <li class="play-music"><span style="color: red;">3</span>
+                                        <a href="#">冷漠 - 怀旧电影</a>
+                                        <!--<audio src="music/冷漠%20-%20怀旧电影.mp3" class="song"></audio>-->
+                                        <div class="cl-fl">
+                                            <a href="#" class="play"></a>
+                                            <a href="#" class="add"></a>
+                                            <a href="#" class="file"></a>
+                                        </div>
+                                    </li>
+                                    <li class="play-music"><span>4</span>
+                                        <a href="#">吴映香 - 我的梦</a>
+                                        <!--<audio src="music/吴映香%20-%20我的梦+Undo(Live).mp3"></audio>-->
+                                        <div class="cl-fl">
+                                            <a href="#" class="play"></a>
+                                            <a href="#" class="add"></a>
+                                            <a href="#" class="file"></a>
+                                        </div>
+                                    </li>
+                                    <li class="play-music"><span>5</span>
+                                        <a href="#">周笔畅 - My Own Life</a>
+                                        <!--<audio src="music/周笔畅%20-%20My%20Own%20Life.mp3"></audio>-->
+                                        <div class="cl-fl">
+                                            <a href="#" class="play"></a>
+                                            <a href="#" class="add"></a>
+                                            <a href="#" class="file"></a>
+                                        </div>
+                                    </li>
+                                    <li class="play-music"><span>6</span>
+                                        <a href="#">庄心妍 - 弄虚作假</a>
+                                        <!--<audio src="music/庄心妍%20-%20弄虚作假.mp3"></audio>-->
+                                        <div class="cl-fl">
+                                            <a href="#" class="play"></a>
+                                            <a href="#" class="add"></a>
+                                            <a href="#" class="file"></a>
+                                        </div>
+                                    </li>
+                                    <li class="play-music"><span>7</span>
+                                        <a href="#">张碧晨 - 下一秒</a>
+                                        <!--<audio src="music/张碧晨%20-%20下一秒.mp3"></audio>-->
+                                        <div class="cl-fl">
+                                            <a href="#" class="play"></a>
+                                            <a href="#" class="add"></a>
+                                            <a href="#" class="file"></a>
+                                        </div>
+                                    </li>
+                                    <li class="play-music"><span>8</span>
+                                        <a href="#">张若昀 - 迷途</a>
+                                        <!--<audio src="music/张若昀%20-%20迷途.mp3"></audio>-->
+                                        <div class="cl-fl">
+                                            <a href="#" class="play"></a>
+                                            <a href="#" class="add"></a>
+                                            <a href="#" class="file"></a>
+                                        </div>
+                                    </li>
+                                    <li class="play-music"><span>9</span>
+                                        <a href="#">曾咏熙 - 想遇见一个人</a>
+                                        <!--<audio src="music/曾咏熙%20-%20想遇见一个人.mp3"></audio>-->
+                                        <div class="cl-fl">
+                                            <a href="#" class="play"></a>
+                                            <a href="#" class="add"></a>
+                                            <a href="#" class="file"></a>
+                                        </div>
+                                    </li>
+                                    <li class="play-music"><span>10</span>
+                                        <a href="#">朴智敏 - Try</a>
+                                        <!--<audio src="music/朴智敏%20-%20Try.mp3"></audio>-->
+                                        <div class="cl-fl">
+                                            <a href="#" class="play"></a>
+                                            <a href="#" class="add"></a>
+                                            <a href="#" class="file"></a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="boot"><a href="#">查看全部></a></div>
+                            </dd>
+                        </dl>
+                        <!--云音乐新歌榜 -->
+                        <dl class="one-list">
+                            <dt>
+                            <div class="img">
+                                <img src="wangyiyun/work/images/two.jpg" alt=""/>
+                                <a href="#" class="bgc">云音乐新歌榜</a>
+                            </div>
+                            <div class="nor">
+                                <a href="#" class="tit">云音乐新歌榜</a>
+
+                                <div>
+                                    <a href="#" class="play" id="all-play-two"></a>
+                                    <a href="#" class="file"></a>
+                                </div>
+                            </div>
+                            </dt>
+                            <dd>
+                                <ul>
+                                    <li class="play-music"><span style="color: red;">1</span>
+                                        <a href="#">杨洋 - 微微一笑很倾城</a>
+                                        <!--<audio src="music/G.E.M.邓紫棋%20-%20泡沫.mp3"></audio>-->
+                                        <div class="cl-fl">
+                                            <a href="#" class="play"></a>
+                                            <a href="#" class="add"></a>
+                                            <a href="#" class="file"></a>
+                                        </div>
+                                    </li>
+                                    <li class="play-music"><span style="color: red;">2</span>
+                                        <a href="#">梁博 - 花火</a>
+                                        <!--<audio src="music/丁丁%20-%20爱要坦荡荡.mp3"></audio>-->
+                                        <div class="cl-fl">
+                                            <a href="#" class="play"></a>
+                                            <a href="#" class="add"></a>
+                                            <a href="#" class="file"></a>
+                                        </div>
+                                    </li>
+                                    <li class="play-music"><span style="color: red;">3</span>
+                                        <a href="#">武艺 - 未接来电</a>
+                                        <!--<audio src="music/冷漠%20-%20怀旧电影.mp3"></audio>-->
+                                        <div class="cl-fl">
+                                            <a href="#" class="play"></a>
+                                            <a href="#" class="add"></a>
+                                            <a href="#" class="file"></a>
+                                        </div>
+                                    </li>
+                                    <li class="play-music"><span>4</span>
+                                        <a href="#">汪苏泷 - 一笑倾城</a>
+                                        <!--<audio src="music/吴映香%20-%20我的梦+Undo(Live).mp3"></audio>-->
+                                        <div class="cl-fl">
+                                            <a href="#" class="play"></a>
+                                            <a href="#" class="add"></a>
+                                            <a href="#" class="file"></a>
+                                        </div>
+                                    </li>
+                                    <li class="play-music"><span>5</span>
+                                        <a href="#">王俊凯 - 树读</a>
+                                        <!--<audio src="music/周笔畅%20-%20My%20Own%20Life.mp3"></audio>-->
+                                        <div class="cl-fl">
+                                            <a href="#" class="play"></a>
+                                            <a href="#" class="add"></a>
+                                            <a href="#" class="file"></a>
+                                        </div>
+                                    </li>
+                                    <li class="play-music"><span>6</span>
+                                        <a href="#">萌萌哒天团 - 帝都</a>
+                                        <!--<audio src="music/庄心妍%20-%20弄虚作假.mp3"></audio>-->
+                                        <div class="cl-fl">
+                                            <a href="#" class="play"></a>
+                                            <a href="#" class="add"></a>
+                                            <a href="#" class="file"></a>
+                                        </div>
+                                    </li>
+                                    <li class="play-music"><span>7</span>
+                                        <a href="#">薛之谦 - 丑八怪</a>
+                                        <!--<audio src="music/张碧晨%20-%20下一秒.mp3"></audio>-->
+                                        <div class="cl-fl">
+                                            <a href="#" class="play"></a>
+                                            <a href="#" class="add"></a>
+                                            <a href="#" class="file"></a>
+                                        </div>
+                                    </li>
+                                    <li class="play-music"><span>8</span>
+                                        <a href="#">薛之谦 - 你还要我怎样</a>
+                                        <!--<audio src="music/张若昀%20-%20迷途.mp3"></audio>-->
+                                        <div class="cl-fl">
+                                            <a href="#" class="play"></a>
+                                            <a href="#" class="add"></a>
+                                            <a href="#" class="file"></a>
+                                        </div>
+                                    </li>
+                                    <li class="play-music"><span>9</span>
+                                        <a href="#">薛之谦 - 演员</a>
+                                        <!--<audio src="music/曾咏熙%20-%20想遇见一个人.mp3"></audio>-->
+                                        <div class="cl-fl">
+                                            <a href="#" class="play"></a>
+                                            <a href="#" class="add"></a>
+                                            <a href="#" class="file"></a>
+                                        </div>
+                                    </li>
+                                    <li class="play-music"><span>10</span>
+                                        <a href="#">薛之谦 - 绅士</a>
+                                        <!--<audio src="music/朴智敏%20-%20Try.mp3"></audio>-->
+                                        <div class="cl-fl">
+                                            <a href="#" class="play"></a>
+                                            <a href="#" class="add"></a>
+                                            <a href="#" class="file"></a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="boot"><a href="#">查看全部></a></div>
+                            </dd>
+                        </dl>
+                        <!-- 网易原创歌曲榜-->
+                        <dl class="one-list">
+                            <dt>
+                            <div class="img">
+                                <img src="wangyiyun/work/images/three.jpg" alt=""/>
+                                <a href="#" class="bgc">网易原创歌曲榜</a>
+                            </div>
+                            <div class="nor">
+                                <a href="#" class="tit">网易原创歌曲榜</a>
+
+                                <div>
+                                    <a href="#" class="play" id="all-play-three"></a>
+                                    <a href="#" class="file"></a>
+                                </div>
+                            </div>
+                            </dt>
+                            <dd>
+                                <ul>
+                                    <li class="play-music"><span style="color: red;">1</span>
+                                        <a href="#">薛之谦 - 花儿和少年</a>
+                                        <!--<audio src="music/G.E.M.邓紫棋%20-%20泡沫.mp3"></audio>-->
+                                        <div class="cl-fl">
+                                            <a href="#" class="play"></a>
+                                            <a href="#" class="add"></a>
+                                            <a href="#" class="file"></a>
+                                        </div>
+                                    </li>
+                                    <li class="play-music"><span style="color: red;">2</span>
+                                        <a href="#">薛之谦 - 认真的雪</a>
+                                        <!--<audio src="music/丁丁%20-%20爱要坦荡荡.mp3"></audio>-->
+                                        <div class="cl-fl">
+                                            <a href="#" class="play"></a>
+                                            <a href="#" class="add"></a>
+                                            <a href="#" class="file"></a>
+                                        </div>
+                                    </li>
+                                    <li class="play-music"><span style="color: red;">3</span>
+                                        <a href="#">许茹芸 - 一帘幽梦</a>
+                                        <!--<audio src="music/冷漠%20-%20怀旧电影.mp3"></audio>-->
+                                        <div class="cl-fl">
+                                            <a href="#" class="play"></a>
+                                            <a href="#" class="add"></a>
+                                            <a href="#" class="file"></a>
+                                        </div>
+                                    </li>
+                                    <li class="play-music"><span>4</span>
+                                        <a href="#">赵丽颖 - 心念</a>
+                                        <!--<audio src="music/吴映香%20-%20我的梦+Undo(Live).mp3"></audio>-->
+                                        <div class="cl-fl">
+                                            <a href="#" class="play"></a>
+                                            <a href="#" class="add"></a>
+                                            <a href="#" class="file"></a>
+                                        </div>
+                                    </li>
+                                    <li class="play-music"><span>5</span>
+                                        <a href="#">那英 - 默</a>
+                                        <!--<audio src="music/周笔畅%20-%20My%20Own%20Life.mp3"></audio>-->
+                                        <div class="cl-fl">
+                                            <a href="#" class="play"></a>
+                                            <a href="#" class="add"></a>
+                                            <a href="#" class="file"></a>
+                                        </div>
+                                    </li>
+                                    <li class="play-music"><span>6</span>
+                                        <a href="#">金所炫 - 梦</a>
+                                        <!--<audio src="music/庄心妍%20-%20弄虚作假.mp3"></audio>-->
+                                        <div class="cl-fl">
+                                            <a href="#" class="play"></a>
+                                            <a href="#" class="add"></a>
+                                            <a href="#" class="file"></a>
+                                        </div>
+                                    </li>
+                                    <li class="play-music"><span>7</span>
+                                        <a href="#">阿悄 - 我真的一点都不孤单</a>
+                                        <!--<audio src="music/张碧晨%20-%20下一秒.mp3"></audio>-->
+                                        <div class="cl-fl">
+                                            <a href="#" class="play"></a>
+                                            <a href="#" class="add"></a>
+                                            <a href="#" class="file"></a>
+                                        </div>
+                                    </li>
+                                    <li class="play-music"><span>8</span>
+                                        <a href="#">陈学冬 - 人间沙</a>
+                                        <!--<audio src="music/张若昀%20-%20迷途.mp3"></audio>-->
+                                        <div class="cl-fl">
+                                            <a href="#" class="play"></a>
+                                            <a href="#" class="add"></a>
+                                            <a href="#" class="file"></a>
+                                        </div>
+                                    </li>
+                                    <li class="play-music"><span>9</span>
+                                        <a href="#">韩红 - 灵犀一动</a>
+                                        <!--<audio src="music/曾咏熙%20-%20想遇见一个人.mp3"></audio>-->
+                                        <div class="cl-fl">
+                                            <a href="#" class="play"></a>
+                                            <a href="#" class="add"></a>
+                                            <a href="#" class="file"></a>
+                                        </div>
+                                    </li>
+                                    <li class="play-music"><span>10</span>
+                                        <a href="#">颂乐、Whee In - Angel</a>
+                                        <!--<audio src="music/朴智敏%20-%20Try.mp3"></audio>-->
+                                        <div class="cl-fl">
+                                            <a href="#" class="play"></a>
+                                            <a href="#" class="add"></a>
+                                            <a href="#" class="file"></a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="boot"><a href="#">查看全部></a></div>
+                            </dd>
+                        </dl>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="rightBar">
+            <div class="r_login">
+                <img src="wangyiyun/images/r1.PNG" alt=""/>
+            </div>
+            <div class="dj">
+                <img src="wangyiyun/images/dj.PNG" alt=""/>
+            </div>
+        </div>
+        <div class="top"><a href="#toper" title="回到顶部">Top</a></div>
+    </div>
+</content>
+<div class="player">
+    <div class="wrap">
+        <div class="btns">
+            <a href="javascript:;" id="prv" class="prv">上一首</a>
+            <a href="javascript:;" id="playin" class="playing">播放/暂停</a>
+            <a href="javascript:;" id="next" class="next">下一首</a>
+        </div>
+        <div class="music-bar">
+            <div class="music-name" id="show-name"></div>
+            <div class="all-time" id="all-time">
+                <div class="current-time" id="current-time">
+                    <div class="img"></div>
+                </div>
+            </div>
+            <span class="show-time" id="show-time"></span>
+        </div>
+        <div class="showMany">
+
+        </div>
+    </div>
+</div>
+
+<!--尾部-->
+<footer class="last">
+    <div class="c">
+        <div class="ft">
+            <a class="logo ftc1" href="#">
+                <span class="ft1">独立音乐人招募计划</span>
+                <br/>
+                <span class="ft2">加入我们即将与超过亿万乐迷互动</span>
+            </a>
+            <a class="logo ftc2" href="#">
+                <span class="fc1">音乐专栏招募计划</span>
+                <br/>
+                <span class="fc2">加入我们与同道中人交流心得</span>
+            </a>
+            <div class="copy">
+                <p>
+                    <a href="#">关于网易</a><span>-</span>
+                    <a href="#">客户服务</a><span>-</span>
+                    <a href="#">服务条款</a><span>-</span>
+                    <a href="#">网站导航</a>
+                    网易公司版权所有©1997-2016
+                </p>
+                <p class="l1">
+                    杭州网易雷火科技有限公司运营:
+                    <a href="#">浙网文[2016]0155-055号</a>
+                    <a href="#"><em></em>意见反馈</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script>
+    //列表显示相应的图标
+
+    $(".play-music").each(function (i) {
+        $(this).mouseover(function () {
+            $(this).css('position', "relative");
+            $(".cl-fl").eq(i).show().css("position", "absolute").css("left", "140px").css("top", "0");
+        });
+        $(this).mouseout(function () {
+            $(".cl-fl").eq(i).hide();
+        });
+
+    });
+    var arr = ["G.E.M.邓紫棋%20-%20泡沫", "丁丁%20-%20爱要坦荡荡", "冷漠%20-%20怀旧电影", "吴映香%20-%20我的梦", "周笔畅%20-%20My Own Life", "庄心妍%20-%20弄虚作假", "张碧晨%20-%20下一秒", "张若昀%20-%20迷途", "曾咏熙%20-%20想遇见一个人",
+        "朴智敏%20-%20Try", "杨洋%20-%20微微一笑很倾城", "梁博%20-%20花火", "武艺%20-%20未接来电", "汪苏泷%20-%20一笑倾城", "王俊凯 %20-%20树读", "萌萌哒天团%20-%20帝都", "薛之谦%20-%20丑八怪", "薛之谦%20-%20你还要我怎样", "薛之谦%20-%20演员",
+        "薛之谦%20-%20绅士", "薛之谦%20-%20花儿和少年", "薛之谦%20-%20认真的雪", "许茹芸%20-%20一帘幽梦", "赵丽颖%20-%20心念", "那英%20-%20默", "金所炫%20-%20梦", "阿悄%20-%20我真的一点都不孤单", "陈学冬%20-%20人间沙", "韩红%20-%20灵犀一动", "颂乐、Whee In%20-%20Angel"];
+    var flag = false;
+    //列表按顺序播放
+    var song = $("#song")[0];
+    var y = 0;
+    var playing = $("#playin");
+    function autoP1() {
+        if (song.currentTime == song.duration) {
+            if (y >= 10 && y < 0) {
+                y = 10;
+                song.pause();
+            } else {
+                song.src = "music/" + arr[y + 1] + ".mp3";
+                y++;
+            }
+        } else {
+        }
+        song.play();
+        flag = true;
+        return y;
+    }
+
+    function autoP2() {
+//        console.log(song.src);
+        if (song.currentTime == song.duration) {
+            if (y >= 20 && y < 10) {
+                y = 10;
+                song.pause();
+                console.log("a");
+            } else {
+                song.src = "music/" + arr[y + 1] + ".mp3";
+                y++;
+                console.log("b");
+            }
+        } else {
+        }
+        song.play();
+        flag = true;
+        return y;
+    }
+
+    var j = 20;
+    function autoP3() {
+        if (song.currentTime == song.duration) {
+            if (y >= 30 && y < 20) {
+                y = 20;
+                song.pause();
+            } else {
+                song.src = "music/" + arr[y + 1] + ".mp3";
+                y++;
+            }
+        } else {
+        }
+        song.play();
+        flag = true;
+        return y;
+    }
+    var ti = song.duration;
+    var timer1,timer2,timer3;
+
+    $("#all-play-one").click(function () {
+        clearInterval(timer1);
+        clearInterval(timer2);
+        clearInterval(timer3);
+        y = 0;
+        song.src = "music/" + arr[y] + ".mp3";
+        timer1 = setInterval(autoP1, ti);
+        playing.css("background","url('../images/playbar.png') no-repeat -0 -165px");
+    });
+
+    $("#all-play-two").click(function () {
+        clearInterval(timer1);
+        clearInterval(timer2);
+        clearInterval(timer3);
+        y = 10;
+        song.src = "music/" + arr[y] + ".mp3";
+        timer2 = setInterval(autoP2, ti);
+        playing.css("background","url('../images/playbar.png') no-repeat -0 -165px");
+    });
+
+    $("#all-play-three").click(function () {
+        clearInterval(timer1);
+        clearInterval(timer2);
+        clearInterval(timer3);
+        y = 20;
+        song.src = "music/" + arr[y] + ".mp3";
+        timer3 = setInterval(autoP3, ti);
+        playing.css("background","url('../images/playbar.png') no-repeat -0 -165px");
+    });
+
+    //点击相应歌曲，播放音乐
+    $(".cl-fl .play").each(function (i) {
+        $(this).click(function () {
+            song.src = "music/" + arr[i] + ".mp3";
+            y = i;
+            $("#song")[0].play();
+            return y;
+        })
+    });
+
+    var prv = $("#prv");
+    var next = $("#next");
+
+    //    获取当前播放歌曲的id;
+    var src = song.src;
+    function getY(){
+        for(var x = 0; x < arr.length; x++){
+            song.src ="music/" + arr[x] + ".mp3";
+            if(src== song.src){
+
+                y = x;
+            }
+        }
+        song.src = src;
+        return y;
+    }
+    y = getY();
+
+    //    播放/暂停
+
+    playing.click(function () {
+        if (flag) {
+            console.log("a");
+            clearInterval(timer1);
+            clearInterval(timer2);
+            clearInterval(timer3);
+            clearInterval(timer4);
+            clearInterval(timer5);
+            clearInterval(timer6);
+            song.pause();
+            playing.css("background","url('../images/playbar.png') no-repeat -0 -204px");
+        } else {
+            song.play();
+            playing.css("background","url('../images/playbar.png') no-repeat -0 -165px");
+            timer1 = setInterval(autoP1, ti);
+            timer2 = setInterval(autoP2, ti);
+            timer3 = setInterval(autoP3, ti);
+            timer4 = setInterval(getTime,1000);
+            timer5 = setInterval(showPro,100);
+            timer6 = setInterval(showName,ti);
+        }
+        flag = !flag;
+    });
+
+    //上一首
+    prv.click(function () {
+        console.log(y);
+        if(y == 0){
+            y = 29;
+            console.log(song.src);
+            song.src = "music/" + arr[29] + ".mp3";
+
+        }else{
+            y = y -1;
+            song.src = "music/" + arr[y] + ".mp3";
+        }
+        song.play();
+        playing.css("background","url('../images/playbar.png') no-repeat -0 -165px");
+        flag = !flag;
+
+        return y;
+    });
+
+    //    下一首
+    next.click(function () {
+
+        if(y == 29){
+            y = 0;
+            song.src = "music/" + arr[0] + ".mp3";
+        }else{
+            y = y + 1;
+            song.src = "music/" + arr[y] + ".mp3";
+        }
+        song.play();
+        playing.css("background","url('../images/playbar.png') no-repeat -0 -165px");
+        flag = !flag;
+        return y;
+    });
+    //    时间显示
+    var showTime = $("#show-time");
+    var min = 0;
+    var second = 0;
+    var cmin = 0;
+    var csec = 0;
+    var timer4;
+    timer4 = setInterval(getTime,1000);
+    function getTime() {
+//            clearInterval(timer4);
+        min = parseInt(song.duration / 60);
+        second = parseInt(song.duration % 60);
+        cmin = parseInt(song.currentTime / 60);
+        csec = parseInt(song.currentTime % 60);
+        if(isNaN(song.duration)){
+            min = 0;
+            second = 0;
+        }
+
+        var a = fixTime(cmin, 2, 0) + ":" + fixTime(csec, 2, 0) + " / " + fixTime(min, 2, 0) + ":" + fixTime(second, 2, 0);
+//            console.log(a);
+        showTime.html(a);
+    }
+    function fixTime(num, n, arg) {
+        return ( Array(n).join(arg) + num ).slice(-n);
+    }
+    //    进度显示条
+    var allTime = $("#all-time");
+    var timer5;
+    var cur = $("#current-time");
+    timer5 = setInterval(showPro,100);
+    function showPro(){
+        var rate = song.duration / allTime.width();
+        cur.width(song.currentTime / rate);
+    }
+
+    //    显示歌名
+    var  showname = $("#show-name");
+    var ti = song.duration;
+    var timer6;
+    timer6 = setInterval(showName,ti);
+    function showName(){
+        var txt = arr[y].replace("%20-%20"," - ");
+        showname.html(txt);
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,588 @@
+@charset "UTF-8";
+
+/*公共样式表*/
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.cl{
+    clear: both;
+}
+.col_red{
+    color: red;
+}
+.w{
+    width: 982px;
+    margin: 0 auto;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*头部导航样式设置开始*/
+/*logo部分设置*/
+.header{
+    width: 100%;
+    height: 70px;
+    background: url("../images/topbar.png") repeat -1px -80px;
+}
+.header .nav1{
+    margin: 0;
+    width: 980px;
+    height: 70px;
+}
+.header .logo{
+    float: left;
+    width: 174px;
+    margin-top: 15px;
+}
+
+/*导航设置*/
+.header .logo h1 a{
+    text-indent: -999em;
+    display: block;
+    width: 157px;
+    height: 42px;
+    background: url("../images/topbar.png") no-repeat 0 0;
+}
+.header #nav ul{
+    float: left;
+    width: 500px;
+}
+.header #nav ul li{
+    height: 70px;
+    text-align: center;
+    position: relative;
+}
+.header #nav ul li a{
+    float: left;
+    width: 95px;
+    line-height: 70px;
+    text-decoration: none;
+    font-size: 14px;
+    color: #cccccc;
+    display: block;
+    background: url("../images/topbar.png") no-repeat -145px -302px;
+    overflow: hidden;
+}
+.header #nav ul .friend a{
+    width: 69px;
+    display: block;
+    background: url("../images/topbar.png") no-repeat -171px -302px !important;
+}
+.header #nav ul li.load a{
+    width: 128px;
+}
+.header #nav ul .load span{
+    float: right;
+    width: 25px;
+    height: 17px;
+    background: url(../images/topbar.png) no-repeat -192px 0px;
+    position: absolute;
+    top: 23px;
+    right: 5px;
+    left: 77%;
+}
+
+/*点击时红色下标显示设置*/
+.header #nav ul li a div{
+    width: 14px;
+    height: 9px;
+    background: url("../images/topbar.png") no-repeat -225px -2px;
+    overflow: hidden;
+    position: absolute;
+    top: 64px;
+    left: 50%;
+    margin-left: -7px;
+    display: none;
+}
+.header #nav ul li .show{
+    display: block;
+}
+
+/*搜索框样式设置*/
+.header .search input{
+    float: left;
+    width: 210px;
+    height: 30px;
+    padding-left: 30px;
+    background: url("../images/topbar.png") no-repeat 0px -551px;
+    margin-top: 21px;
+}
+/*login登录样式设置*/
+.header .login{
+    float: right;
+    width: 90px;
+    height: 30px;
+    margin-top: 20px;
+}
+.header .login .dl{
+    float: right;
+    width: 13px;
+    height: 8px;
+    margin-top: 10px;
+    background: url("../images/topbar.png") -228px -380px;
+    display: block;
+}
+.header .login a{
+    width: 26px;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 20px;
+    margin-left: 15px;
+    color: #787878;
+}
+
+/*导航nav2部分样式设置*/
+.nav2{
+    width: 100%;
+    height: 35px;
+    background: url("../images/topbar.png") repeat -1px -231px;
+}
+.nav2 ul{
+    width: 600px;
+    height: 20px;
+    margin-left: 138px;
+
+}
+.nav2 a{
+    float: left;
+    color: #fff;
+    text-decoration: none;
+    margin-top: 7px;
+    line-height: 20px;
+    text-align: center;
+}
+.nav2 a:hover{
+    background-color: #880202;
+    border-radius: 10px;
+}
+.nav2 ul li a.discover{
+    width: 50px;
+    margin-left: 55px;
+    background-color: #880202;
+    border-radius: 10px;
+}
+.nav2 ul li a.toplist{
+    width: 64px;
+    margin-left: 36px;
+}
+.nav2 ul li a.playlist{
+    width: 52px;
+    margin-left: 26px;
+}
+.nav2 ul li a.djradio{
+    width: 76px;
+    margin-left: 42px;
+}
+.nav2 ul li a.artist{
+    width: 52px;
+    margin-left: 30px;
+}
+.nav2 ul li a.album{
+    width: 76px;
+    margin-left: 30px;
+}
+/*轮播图部分样式设置*/
+.main{  }
+.box{
+    width: 730px;
+    height: 336px;
+    overflow: hidden;
+    float: left;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.box ul{  }
+img{
+    vertical-align: top;
+}
+#img_box{
+    width: 1000%;
+    list-style: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+ul li{
+    float: left;
+}
+.box .circle{
+    list-style: none;
+    width: 185px;
+    height: 6px;
+    position: absolute;
+    bottom: 13px;
+    left: 50%;
+    margin-left: -70px;
+}
+.box .circle li{
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    border-radius: 50%;
+    margin: 0 8px;
+    text-align: center;
+}
+.box .circle li a{
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    display: block;
+    tab-index: -999em;
+    overflow: hidden;
+    color: transparent;
+}
+.box .circle li a:hover{
+    background-color: #b90b0b;
+}
+.current{
+    display: block;
+}
+
+/*下载客户端download部分样式设置*/
+.download{
+    float: right;
+    width: 251px;
+    height: 337px;
+    background: url("../images/download.png") no-repeat 0 0;
+}
+.download a{
+    width: 215px;
+    height: 56px;
+}
+.download a:hover{
+    background: url("../images/download.png") no-repeat 0 -340px;
+}
+
+/*左右边角样式设置*/
+.arrow{
+    font: 500 62px/62px "simsun";
+}
+.arrow a{
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+.arrow .arrow_l{
+    float: left;
+    width: 37px;
+    height: 63px;
+    position: absolute;
+    top: 240px;
+    left: 124px;
+}
+.arrow .arrow_r{
+    float: right;
+    width: 37px;
+    height: 63px;
+    position: absolute;
+    top: 240px;
+    left: 1195px;
+}
+.arrow a:hover{
+    background-color: rgba(0,0,0,0.2); /*a alpha:透明度*/
+}
+
+/*登录首页样式*/
+#login{
+    width: 528px;
+    height: 374px;
+    margin: 144px auto;
+    display: none;
+    background-color: #fff;
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
+    box-shadow: 1px 2px 5px #ccc ,-1px -2px 5px #ccc;
+    position: relative;
+    z-index: 1;
+}
+.hea{
+    padding-left: 16px;
+    width: 528px;
+    height: 40px;
+    background-color: #2d2d2d;
+    color: #ffffff;
+    line-height: 40px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.hea span{
+    float: right;
+    color: #eeeeee;
+    padding-right: 16px;
+    cursor: pointer;
+}
+#login .center{
+    width: 528px;
+    height: 206px;
+    margin: 40px 0;
+    background-color: #fff;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 2;
+}
+#login .center .leftside{
+    width: 298px;
+    margin: 0 auto;
+    height: 206px;
+    border-right: 1px dotted #cccccc;
+    float: left;
+}
+#login .center .rightside{
+    width: 229px;
+    height: 206px;
+    float: right;
+    background: url(../../work/images/others.png) no-repeat;
+}
+
+#login .center .leftside div{
+    margin: 0 auto;
+    width: 226px;
+}
+#login .center button{
+    margin: 10px auto;
+    width: 226px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+    cursor: pointer;
+}
+#login .center .singin{
+    color: white;
+    /*margin-bottom: 10px;*/
+    /*margin-top: 10px;*/
+    background-color: #3080cc;
+}
+.footer{
+    border-top: 1px solid #cccccc;
+    width: 528px;
+    height: 49px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.footer a{
+    float: right;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    color: #999;
+    line-height: 49px;
+}
+.footer span{
+    margin-left: 2px;
+    margin-right: 5px;
+}
+
+/*手机号登录样式*/
+.phone{
+    width: 528px;
+    height: 290px;
+    margin: 144px auto;
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
+    box-shadow: 1px 2px 5px #ccc ,-1px -2px 5px #ccc;
+    background-color: #fff;
+    display: none;
+    position: relative;
+    z-index: 1;
+}
+form{
+    width: 200px;
+    height: 160px;
+    margin: 20px auto;
+    position: absolute;
+    left: 50%;
+    top: 40px;
+    margin-left: -100px;
+}
+.phone input{
+    width: 200px;
+    height: 30px;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+}
+.phone input.special{
+    height: 13px;
+    width: 13px;
+    margin-right: 10px;
+}
+.phone label{
+    width: 73px;
+    height: 14px;
+    line-height: 13px;
+    font-size: 12px;
+    color: #444;
+}
+.mobil form{
+    position: absolute;
+    top: 10px;
+}
+.phone form a{
+    font-size: 12px;
+    float: right;
+    text-decoration: none;
+    text-align: right;
+    height: 14px;
+    line-height: 14px;
+    color: #444444;
+}
+.submit{
+    margin-top: 10px;
+    color: white;
+    background-color: #3080cc;
+    border: 1px solid #308099;
+    cursor: pointer;
+}
+.phone .footer .f{
+    float: left;
+    color: #3080cc;
+}
+.phone .footer .r{
+    float: right;
+}
+
+/*手机注册样式*/
+.mobil{
+    /*display: block;*/
+}
+.mobil form p i{
+    font-style: normal;
+    font-size: 14px;
+    color: #666666;
+    width: 35px;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 2px;
+}
+.mobil form p{
+    border: 1px solid #666666;
+}
+.mobil form p input{
+    border: none;
+    width: 165px;
+    padding: 0;
+}
+.mobil form label{
+    width: 50px;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 10px;
+}
+.detail{
+    float: right;
+    width: 200px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    display: none;
+    font-size: 12px;
+    color:red;
+    position: absolute;
+    left: 50px;
+    top: 10px;
+}
+
+/*播放器样式*/
+.wrap{
+    width: 100%;
+    height: 47px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    /*background-color: #2a2a2a;*/
+    border: 1px solid #000000;
+    background: url("../../images/playbar.png") 0 -6px repeat-x;
+    box-shadow: 1px -1px 2px #000;
+}
+.wrap .btns{
+    width: 157px;
+    padding: 6px 0 0 6px;
+    overflow: hidden;
+    float: left;
+    margin-left: 10px;
+}
+.wrap .btns a{
+    display: block;
+    margin-right: 8px;
+    margin-top: 5px;
+    text-indent: -9999px;
+    float: left;
+}
+.wrap .btns .prv{
+    width: 28px;
+    height: 28px;
+    background: url("../../images/playbar.png") 0 -130px no-repeat;
+}
+.wrap .btns .playing{
+    margin-top: 0;
+    width: 36px;
+    height: 36px;
+    background:url("../../images/playbar.png") 0 -204px no-repeat;
+}
+.wrap .btns .next{
+    width: 28px;
+    height: 28px;
+    background: url("../../images/playbar.png") -80px -130px no-repeat;
+}
+.wrap .music-bar{
+    /*width: 570px;*/
+    width: 50%;
+    height: 37px;
+    margin-left: 5%;
+    margin-top: 0;
+    float: left;
+}
+.wrap .music-bar .music-name{
+    width: 100%;
+    height: 28px;
+    color: #ddd;
+    font-size: 14px;
+    line-height: 28px;
+}
+.wrap .music-bar .all-time{
+    overflow: hidden;
+    width: 80%;
+    height: 9px;
+    border-radius: 4px;
+    background-color: #535353;
+    float: left;
+    position: relative;
+}
+.wrap .music-bar .all-time .current-time{
+    width: 0;
+    height: 9px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #c70c0c;
+}
+.wrap .music-bar .show-time{
+    width: 17%;
+    height: 14px;
+    font-size: 14px;
+    line-height: 14px;
+    /*background: red;*/
+    margin-left: 5px;
+    color:#aaa;
+    display: block;
+    float: left;
+}
+
+
+
+
+
+
+
+

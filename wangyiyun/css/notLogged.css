@@ -1,0 +1,143 @@
+@charset "UTF-8";
+/*版心*/
+.c{
+    float: left;
+    width: 981px;
+    margin-left: 300px;
+}
+/*导航栏样式设置*/
+nav{
+    /*width: 100%;*/
+    height: 70px;
+    position: relative;
+    background: url("../images/topbar.png") 0 -80px repeat-x;
+}
+
+nav h1 {
+    /*display: block;*/
+    width: 174px;
+    height: 55px;
+    float: left;
+}
+nav h1 a{
+    display: block;
+    width: 157px;
+    height: 33px;
+    padding: 22px 18px 0 0;
+    text-indent: -9999px;
+    background: url(../images/topbar.png) 0 15px no-repeat;
+}
+/**/
+nav div ul li{
+    display: block;
+    float: left;
+    height: 70px;
+    padding-left: 2px;
+    background: url("../images/topbar.png") 0 -80px no-repeat;
+}
+nav div ul li a{
+    display: block;
+    height: 70px;
+    line-height: 76px;
+    font-size: 14px;
+    color: #ccc;
+}
+nav div ul li a:hover{
+
+}
+/*发现 我的*/
+nav div ul li.discover{
+    width: 96px;
+
+}
+nav div ul li.discover a{
+    padding: 0 21px 0 19px;
+}
+/*朋友*/
+nav div ul li.friend{
+    width: 68px;
+}
+nav div ul li.friend a{
+    padding: 0 21px 0 19px;
+}
+/*下载*/
+nav div ul li.load{
+    position: relative;
+    width: 130px;
+}
+nav div ul li.load a{
+    padding: 0 40px 0 18px;
+}
+nav div ul li.load a em{
+    position: absolute;
+    top: 23px;
+    left: 90px;
+    width: 28px;
+    height: 19px;
+    background: url("../images/topbar.png") -190px 0 no-repeat;
+}
+/*搜索框*/
+nav .search{
+    float: left;
+    margin-left: 140px;
+}
+nav .search input{
+    margin-top: 19px;
+    width: 180px;
+    height: 31px;
+    padding-left: 30px;
+    background: url("../images/topbar.png") 0 -550px no-repeat;
+}
+/*登录*/
+nav .login{
+    width: 46px;
+    float: right;
+}
+nav .login a{
+    display: block;
+    color: #787878;
+    line-height: 70px;
+}
+nav .login a em{
+    display: block;
+    margin: 33px 0 0 7px;
+    float: right;
+    width: 12px;
+    height: 7px;
+    background: url("../images/topbar.png") -228px -380px no-repeat ;
+}
+/*分割红线*/
+.col{
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 5px;
+    background: url("../images/topbar.png") 0 -230px repeat-x;
+}
+.col .navshadow{
+    width: 100%;
+    float: left;
+    height: 2px;
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    background: url("../images/navshadow.png") repeat-x;
+}
+/*contain*/
+.contain .c .mymusic{
+    float: left;
+    width: 100%;
+    height: 700px;
+    border-left: 1px solid rgb(211, 211, 211);
+    border-right: 1px solid rgb(211, 211, 211);
+
+}
+.contain .c .mymusic div{
+    width: 807px;
+    height: 268px;
+    /*padding-top: 104px;*/
+    margin: 104px 86.5px 0 86.5px;
+    background: url("../images/mymusic.png") no-repeat;
+}
+
+

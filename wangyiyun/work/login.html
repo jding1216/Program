@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/base.css"/>
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        /*登录首页样式*/
+        #login{
+            width: 528px;
+            height: 374px;
+            margin: 144px auto;
+            display: none;
+            border: 1px solid #eeeeee;
+            border-radius: 5px;
+            box-shadow: 1px 2px 5px #ccc ,-1px -2px 5px #ccc;
+        }
+        .hea{
+            padding-left: 16px;
+            width: 512px;
+            height: 40px;
+            background-color: #2d2d2d;
+            color: #ffffff;
+            line-height: 40px;
+        }
+        .hea span{
+            float: right;
+            color: #eeeeee;
+            padding-right: 16px;
+            cursor: pointer;
+        }
+        #login .center{
+            width: 528px;
+            height: 206px;
+            margin: 40px 0;
+        }
+        #login .center .leftside{
+            width: 298px;
+            margin: 0 auto;
+            height: 206px;
+            border-right: 1px dotted #cccccc;
+            float: left;
+        }
+        #login .center .rightside{
+            width: 229px;
+            height: 206px;
+            float: right;
+            background: url(images/others.png) no-repeat;
+
+        }
+
+        #login .center .leftside div{
+            margin: 0 auto;
+            width: 226px;
+
+        }
+        #login .center button{
+            margin: 10px auto;
+            width: 226px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 5px;
+            border: 1px solid #cccccc;
+            cursor: pointer;
+        }
+        #login .center .singin{
+            color: white;
+            /*margin-bottom: 10px;*/
+            /*margin-top: 10px;*/
+            background-color: #3080cc;
+        }
+        .footer{
+            border-top: 1px solid #cccccc;
+            width: 528px;
+            height: 49px;
+        }
+        .footer a{
+            float: right;
+            text-decoration: none;
+            font-size: 14px;
+            cursor: pointer;
+            color: #999;
+            line-height: 49px;
+        }
+        .footer span{
+            margin-left: 2px;
+            margin-right: 5px;
+        }
+
+        /*手机号登录样式*/
+        .phone{
+            width: 528px;
+            height: 290px;
+            margin: 144px auto;
+            border: 1px solid #eeeeee;
+            border-radius: 5px;
+            box-shadow: 1px 2px 5px #ccc ,-1px -2px 5px #ccc;
+            display: none;
+        }
+        form{
+            width: 200px;
+            height: 160px;
+            margin: 20px auto;
+        }
+        .phone input{
+            width: 200px;
+            height: 30px;
+            outline: none;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+        }
+        .phone input.special{
+            height: 13px;
+            width: 13px;
+            margin-right: 10px;
+        }
+        .phone label{
+            width: 73px;
+            height: 14px;
+            line-height: 13px;
+            font-size: 12px;
+            color: #444;
+        }
+        .phone form a{
+            font-size: 12px;
+            float: right;
+            text-decoration: none;
+            text-align: right;
+            height: 14px;
+            line-height: 14px;
+            color: #444444;
+        }
+        .submit{
+            margin-top: 10px;
+            color: white;
+            background-color: #3080cc;
+            border: 1px solid #308099;
+            cursor: pointer;
+        }
+        .phone .footer .f{
+            float: left;
+            color: #3080cc;
+        }
+        .phone .footer .r{
+            float: right;
+        }
+
+        /*手机注册样式*/
+        .mobil{
+            /*display: block;*/
+        }
+
+        .mobil form p i{
+            font-style: normal;
+            font-size: 14px;
+            color: #666666;
+            width: 35px;
+            height: 30px;
+            line-height: 30px;
+            padding-left: 2px;
+        }
+        .mobil form p{
+            border: 1px solid #666666;
+        }
+        .mobil form p input{
+            border: none;
+            width: 165px;
+            padding: 0;
+        }
+        .mobil form label{
+            width: 50px;
+            height: 30px;
+            line-height: 30px;
+            margin-top: 10px;
+        }
+        .detail{
+            float: right;
+            width: 100px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            display: none;
+            font-size: 12px;
+            color:red;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+//            var submit = document.getElementById('submit');
+//            var submit_sin = document.getElementById('submit_sin');
+            var submit = document.getElementsByClassName('submit');
+
+
+            for(var i = 0 ; i < submit.length; i++){
+
+
+            submit[i].onclick = function () {
+                var phone_number = document.getElementById("phone_number").value;
+                var password = document.getElementById("password").value;
+                var phone_sin = document.getElementById("phone_sin").value;
+                var password_sin = document.getElementById("password_sin").value;
+
+                var xhr = null;
+                if(window.XMLHttpRequest){
+                    xhr = new XMLHttpRequest();
+                }else{
+                    xhr = new ActiveXObject('Microsoft.XMLHTTP');
+                }
+
+                var url = 'login.php';
+                xhr.open('post',url,true);
+                var param = '';
+                if(phone_number != '' && password != ''){
+
+                    param = 'password='+password+'&phone='+phone_number;
+                }else if(password_sin != '' && phone_sin != ''){
+
+                    param =  'password_sin='+password_sin+'&phone_sin='+phone_sin;
+                }else{
+                    console.log("请输入完整的信息");
+                }
+//                自定义的请求头部信息 两个参数 头部字段的名称 头部字段的值  要成功请求 必须放在open()方法之后且seng()方法之前调用
+                xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+
+                xhr.send(param);
+
+                xhr.onreadystatechange = function () {
+                    if(xhr.readyState == 4){
+                        if(xhr.status == 200){
+                            var data = xhr.responseText;
+                            if(data){
+
+                                    console.log(data);
+                            }
+                        }
+                    }
+                };
+                phone.style.display = 'none';
+                mobile.style.display = 'none';
+                return false;
+            }
+            }
+        }
+    </script>
+</head>
+<body>
+<button id="btn">登录</button>
+
+
+<!--登录首页面-->
+<div id="login">
+    <div class="hea">登录<span class="close" id="close">×</span></div>
+    <div class="center">
+        <div class="leftside">
+            <div> <img src="images/login.png" alt="" class="fl"/>
+                <button class="singin fl" id="mobile_login">手机号登录</button>
+                <button class="log fl" id="log">注册</button>
+            </div>
+        </div>
+        <div class="rightside">
+            <!--<img src="images/others.png" alt=""/>-->
+        </div>
+    </div>
+    <div class="footer">
+        <a href="#">腾讯微博登录<span>></span></a>
+    </div>
+</div>
+
+<!--手机号登录界面-->
+<div class="phone" id="phone_login">
+    <div class="hea">手机号登录<span class="close">×</span></div>
+    <div>
+        <p class="detail"></p>
+        <form>
+
+            <input type="text" id="phone_number" placeholder="请输入手机号码" class="phone_even"/><br><br>
+
+            <input type="password" placeholder="请输入密码" id="password" class="pwd"/><br><br>
+
+            <label><input type="checkbox" class="special"/>自动登录</label>
+
+            <a href="#">忘记密码？</a>
+
+            <input type="submit" value="登录" class="submit" id="submit"/>
+        </form>
+    </div>
+    <div class="footer">
+        <a href="#" class="f" id="other_login"><span><</span>使用其它方式登录</a>
+        <a href="#" class="r" id="no_phone">没有账号？免费注册<span>></span></a>
+    </div>
+</div>
+
+<!--手机号注册-->
+<div class="mobil phone" id="mobile">
+    <div class="hea">手机号注册<span class="close">×</span></div>
+    <div>
+        <p class="detail"></p>
+        <form>
+
+            <label>手机号：</label>
+            <p class="number">
+                <i>+86</i>
+                <input type="text" id="phone_sin" placeholder="输入手机号码" class="phone_even"/>
+            </p>
+            <label>密码：</label>
+            <p class="key">
+                <input type="password" id="password_sin" placeholder="设置密码，不少于6位数" class="pwd"/>
+            </p>
+            <input type="submit" class="submit" value="注册" id="submit_sin"/>
+        </form>
+
+    </div>
+    <div class="footer">
+        <a href="#" class="f" id="back"><span><</span>返回登录</a>
+    </div>
+</div>
+<script>
+
+    var close = document.getElementsByClassName('close');
+//    var close = document.getElementById('close');
+    var login = document.getElementById('login');
+    var phone = document.getElementById('phone_login');
+    var mobile = document.getElementById('mobile');
+
+    var btn = document.getElementById('btn');
+    btn.onclick = function () {
+        login.style.display = 'block';
+    };
+
+
+//    点击关闭
+    for(var i = 0; i < close.length; i++ ){
+        close[i].onclick = function () {
+            login.style.display = 'none';
+            phone.style.display = 'none';
+            mobile.style.display = 'none';
+        };
+    }
+
+//    登录首页功能
+    var mobile_login = document.getElementById('mobile_login');
+    var log = document.getElementById('log');
+
+    mobile_login.onclick = function () {
+        login.style.display = 'none';
+        phone.style.display = 'block';
+    };
+    log.onclick = function () {
+        login.style.display = 'none';
+        mobile.style.display = 'block';
+    };
+
+//    手机登录功能
+    var other = document.getElementById('other_login');
+    var noNumber = document.getElementById('no_phone');
+    other.onclick = function () {
+        login.style.display = 'block';
+        phone.style.display = 'none';
+    };
+    noNumber.onclick = function () {
+        phone.style.display = 'none';
+        mobile.style.display = 'block';
+    };
+
+//    注册功能
+    var back = document.getElementById('back');
+    back.onclick = function () {
+        mobile.style.display = 'none';
+        login.style.display = 'block';
+    };
+
+//    判断输入是否符合要求
+//    var phone_even = document.getElementsByClassName('phone_even');
+//    var pwd = document.getElementsByClassName('pwd');
+    var detail = document.getElementsByClassName('detail');
+    var phone_number1 = document.getElementById("phone_number");
+    var password1 = document.getElementById("password");
+    var phone_sin1 = document.getElementById("phone_sin");
+    var password_sin1 = document.getElementById("password_sin");
+
+    phone_number1.oninput = function () {
+        if(phone_number1.value.length != 11 && parseInt(phone_number1.value).length != 11){
+            detail[0].style.display='block';
+            detail[0].innerHTML = "请输入正确的电话号码";
+        }
+        else{
+            detail[0].style.display='none';
+        }
+    };
+
+    phone_sin1.oninput = function () {
+        if(phone_sin1.value.length != 11 && parseInt(phone_sin1.value).length != 11){
+            detail[1].style.display='block';
+            detail[1].innerHTML = "请输入正确的电话号码";
+        }
+       else{
+            detail[1].style.display='none';
+        }
+    };
+
+    password_sin1.oninput = function () {
+        if(password_sin1.value.length < 6){
+            detail[1].style.display='block';
+            detail[1].innerHTML = "请输入正确的密码";
+        }
+        else if(password_sin1.value.length = 0){
+            detail[1].style.display='none';
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,448 @@
+@charset "UTF-8";
+/*版心*/
+.c{
+    width: 990px;
+    margin: 0 auto;
+}
+/*中间展示*/
+/*推荐导航*/
+content .c .left{
+    width: 740px;
+    height: 1503px;
+    float: left;
+    padding: 20px 20px 40px 20px;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+content .c .left .mainly{
+    width: 689px;
+    height: 523px;
+
+}
+content .c .left .mainly .m_nav{
+    width: 698px;
+    height: 33px;
+    border-bottom: 2px solid #c10d0c;
+}
+content .c .left .mainly .m_nav h3{
+    display: inline-block;
+    float: left;
+    font-size: 20px;
+    line-height: 28px;
+    font-family: 微软雅黑;
+}
+content .c .left .mainly .m_nav h3 em{
+    display: inline-block;
+    width: 34px;
+    height: 33px;
+    vertical-align: middle;
+    background: url("../images/index.png") -225px -156px no-repeat;
+}
+content .c .left .mainly .m_nav .tab{
+    float: left;
+    width: 236px;
+    height: 14px;
+    margin: 7px 0 0 20px;
+    
+}
+content .c .left .mainly .m_nav .tab a{
+    color: #666;
+}
+content .c .left .mainly .m_nav .tab span{
+    margin: auto 10px;
+    color: #ccc;
+}
+
+content .c .left .mainly .m_nav .more {
+    display: inline-block;
+    float: right;
+    margin-top: 9px;
+    margin-right: 10px;
+    width: 40px;
+    height: 14px;
+}
+content .c .left .mainly .m_nav .more a{
+    float: left;
+    color: #666;
+}
+content .c .left .mainly .m_nav .more em{
+    display: inline-block;
+    float: right;
+    margin-top: 2px;
+    margin-left: 4px;
+    width: 12px;
+    height: 12px;
+    vertical-align: middle;
+    background: url("../images/index.png") 0 -240px no-repeat;
+}
+/*推荐导航设置结束*/
+/*8张图片显示*/
+content .c .left .mainly ul{
+    position: absolute;
+    width: 731px;
+    height: 468px;
+    margin: 20px 0 0 -42px;
+}
+content .c .left .mainly ul li{
+    width: 182px;
+    height: 204px;
+    padding: 0 0 30px 42px;
+    float: left;
+}
+content .c .left .mainly ul li a{
+    display: inline-block;
+    margin-top: 8px;
+    color: #000;
+    font-size: 14px;
+    line-height: 1.4;
+    vertical-align: middle;
+}
+content .c .left .mainly ul li a i{
+    font-style: normal;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    left: 0;
+    margin-right: 3px;
+    width: 35px;
+    height: 15px;
+    background: url("../images/icon.png") -31px -658px no-repeat;
+}
+/*图片显示结束*/
+/*广告位*/
+content .c .left .adv{
+    float: left;
+    width: 100%;
+    height: 78px;
+    cursor: pointer;
+}
+/* 新碟上架*/
+/*开头导航与上面一样 可优化*/
+content .c .left .new{
+    float: left;
+    margin-top: 35px;
+}
+content .c .left .new .head1{
+    width: 698px;
+    height: 33px;
+    border-bottom: 2px solid #c10d0c;
+}
+content .c .left .new .head1 h3{
+    display: inline-block;
+    float: left;
+    font-size: 20px;
+    line-height: 28px;
+    color: #666;
+    font-family: 微软雅黑;
+}
+content .c .left .new .head1 h3 em{
+    display: inline-block;
+    width: 34px;
+    height: 33px;
+    vertical-align: middle;
+    background: url("../images/index.png") -225px -156px no-repeat;
+}
+content .c .left .new .head1 .more {
+    display: inline-block;
+    float: right;
+    margin-top: 9px;
+    margin-right: 10px;
+    width: 40px;
+    height: 14px;
+}
+content .c .left .new .head1 .more a{
+    float: left;
+    color: #666;
+}
+content .c .left .new .head1 .more em{
+    display: inline-block;
+    float: right;
+    margin-top: 2px;
+    margin-left: 4px;
+    width: 12px;
+    height: 12px;
+    vertical-align: middle;
+    background: url("../images/index.png") 0 -240px no-repeat;
+}
+content .c .left .new .newer{
+    float: left;
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+
+    /*榜单样式设置*/
+content .c .left .list{
+    float: left;
+    margin-top: 45px;
+}
+.hot-list{
+    width: 689px;
+    height: 35px;
+    background: url("../work/images/hot-list.png") no-repeat 0 5px;
+    border-bottom: 2px solid #c10d0c;
+    margin-bottom: 20px;
+}
+.hot-list .left1{
+    margin-left: 30px;
+    line-height: 35px;
+    font-size: 20px;
+    text-decoration: none;
+    color:#444444;
+    font-family: "Microsoft YaHei";
+    cursor: pointer;
+}
+
+.hot-list span .right1{
+    height: 14px;
+    float: right;
+    cursor: pointer;
+    text-decoration: none;
+    color:#444444;
+    font-size: 12px;
+    line-height: 35px;
+}
+.hot-list span .right-i{
+    width: 23px;
+    height: 35px;
+    float: right;
+    color: #c10d0c;
+    background: url("../work/images/more.png") no-repeat 0 -2px;
+}
+.all-list{
+    width: 689px;
+    height: 472px;
+    margin:0 auto;
+    border: 1px solid rgba(102, 102, 102, 0.52);
+    background-color: #eeeeee;
+}
+.all-list dl{
+    width: 228px;
+    float: left;
+    height: 472px;
+    background-color: #eeeeee;
+    border-right:1px solid rgba(102, 102, 102, 0.52);
+}
+.all-list dl:last-child{
+    border-right: 0;
+}
+.all-list dl dt{
+    width: 209px;
+    height: 100px;
+    padding-top: 20px;
+    padding-left: 19px;
+    overflow: hidden;
+}
+.all-list dl dd{
+    width: 228px;
+    height: 350px;
+    border-left: 1px solid rgba(102, 102, 102, 0.52);
+    margin-left: -1px;
+}
+
+.all-list dd ul li{
+    list-style: none;
+    width: 228px;
+    height: 32px;
+    overflow: hidden;
+    background-color: #eeeeee;
+    border-left: 1px solid rgba(102, 102, 102, 0.52);
+    margin-left: -1px;
+}
+.all-list dd ul li:nth-child(odd){
+    background-color: #ddd;
+}
+.all-list .img{
+    float: left;
+    width: 80px;
+    height: 80px;
+}
+.all-list .img img{
+    width: 80px;
+    height: 80px;
+}
+.all-list .img .bgc{
+    display: block;
+    width: 80px;
+    height: 80px;
+    text-indent: -9999em;
+
+}
+.all-list .nor{
+    float: left;
+    margin-left: 5px;
+}
+.all-list a{
+    text-decoration: none;
+    cursor: pointer;
+    color: #333;
+    font-family: "Microsoft YaHei";
+}
+.all-list dd a{
+    font-size: 12px;
+    overflow: hidden;
+}
+.all-list a:hover{
+    text-decoration: underline;
+}
+.all-list dd ul li span{
+    font-size: 20px;
+    margin-left: 10px;
+    width: 35px;
+    height: 32px;
+    line-height: 32px;
+}
+.all-list .nor div{
+    overflow: hidden;
+    margin-top: 10px;
+}
+.all-list  .play{
+    width: 22px;
+    height: 22px;
+    display: block;
+    float: left;
+    margin-left: 5px;
+
+    /*text-indent: 99999em;*/
+    background: url(../work/images/index.png) no-repeat -267px -205px;
+}
+.all-list  .play:hover{
+    background: url(../work/images/index.png) no-repeat -267px -235px;
+}
+.all-list  .file{
+    float: left;
+    width: 20px;
+    height: 22px;
+    display: block;
+    margin-left: 8px;
+    background: url(../work/images/index.png) no-repeat -300px -205px;
+}
+.all-list  .file:hover{
+    background: url(../work/images/index.png) no-repeat -300px -235px;
+}
+.all-list .add{
+    float: left;
+    width: 19px;
+    height: 19px;
+    display: block;
+    margin-left: 10px;
+    margin-top: 4px;
+    background: url(../work/images/icon.png) no-repeat 0 -700px;
+}
+.all-list .add:hover{
+    background: url(../work/images/icon.png) no-repeat -22px -700px;
+}
+.cl-fl{
+    float: right;
+    overflow: hidden;
+    margin-top: 5px;
+    display: none;
+    z-index: 1;
+    background-color: inherit;
+}
+.all-list  dd .boot{
+    width: 228px;
+    height: 32px;
+    background-color: #dddddd;
+}
+.all-list dd .boot a{
+    float: right;
+    font-size: 12px;
+    margin-right: 15px;
+    margin-top: 10px;
+}
+.showMany{
+    width: 19%;
+    height: 45px;
+    float: left;
+    margin-top: 1px;
+    /*position: absolute;*/
+    background: url("../wangyiyun/images/showMany.png") no-repeat;
+}
+
+
+    /*右边入驻歌手*/
+content .c .rightBar{
+    float: right;
+    width: 250px;
+    height: 1504px;
+    border-right: 1px solid #ccc;
+}
+
+content .c .rightBar .r_login{
+    width: 250px;
+
+}
+content .c .rightBar img{
+    margin-left: -1px;
+}
+
+/*回到顶部*/
+.c .top a{
+    display: none;
+    position: fixed;
+    width: 49px;
+    height: 44px;
+    bottom: 160px;
+    left: 50%;
+    margin-left: 508px;
+    text-indent: -9999px;
+    background: url("../images/sprite.png") -265px -47px no-repeat ;
+}
+
+
+    /*尾部样式设置*/
+.last{
+    float: left;
+    width: 100%;
+    height: 126px;
+    border-top: 1px solid #ccc;
+}
+/*独立音乐人招募计划*/
+.last .c .ft .logo{
+    display: block;
+    float: left;
+    margin-top: 29px;
+    width: 247px;
+    height: 46px;
+    padding-left: 53px;
+    line-height: 22px;
+}
+.last .c .ft .ftc1{
+    background: url("../images/sprite.png") -400px -80px no-repeat;
+}
+.last .c .ft .ftc1 .ft1,.fc1{
+    color: #666;
+}
+.last .c .ft .ftc1 .ft2,.fc2{
+    color: #ccc;
+}
+/*音乐专栏招募计划*/
+.last .c .ft .ftc2{
+    background: url("../images/sprite.png") -400px -125px no-repeat;
+}
+/*版权归属*/
+.last .c .ft .copy {
+    float: left;
+    padding-top: 29px;
+    margin-left: -20px;
+    width: 385px;
+    height: 44px;
+}
+.last .c .ft .copy a{
+    color: #666;
+    line-height: 22px;
+}
+.last .c .ft .copy p{
+    color: #9b9b9b;
+    line-height: 22px;
+}
+
+.last .c .ft .copy .l1 em{
+    display: inline-block;
+    margin-right: 3px;
+    width: 19px;
+    height: 16px;
+    vertical-align: middle;
+    background: url("../images/icon.png") 0 -39px no-repeat;
+}

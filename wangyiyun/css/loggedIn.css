@@ -1,0 +1,665 @@
+@charset "UTF-8";
+/*版心*/
+.c{
+    float: left;
+    width: 981px;
+    margin-left: 301px;
+}
+html {
+    background-color: #f5f5f5;
+}
+/*导航栏样式设置*/
+nav{
+    width: 100%;
+    height: 75px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: url("../images/topbar.png") 0 -80px repeat-x;
+}
+
+nav h1 {
+    width: 174px;
+    height: 55px;
+    margin-left: 1px;
+    float: left;
+}
+nav h1 a{
+    display: block;
+    width: 157px;
+    height: 33px;
+    padding: 22px 18px 0 0;
+    text-indent: -9999px;
+    background: url(../images/topbar.png) 0 15px no-repeat;
+}
+/**/
+nav div ul li{
+    display: block;
+    position: relative;
+    left: 0;
+    top: 0;
+    float: left;
+    height: 70px;
+    /*padding-left: 1px;*/
+    background: url("../images/topbar.png") 0 -80px no-repeat;
+}
+/*开始的默认设置*/
+nav div ul .faul {
+    background: url('../images/topbar.png') left -155px no-repeat;
+}
+nav div ul .faul .r_tri{
+    display: block;
+}
+/*下标的三角形*/
+nav div ul li .r_tri{
+    display: none;
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 14px;
+    height: 9px;
+    margin-left: -7px;
+    z-index: 1;
+    background: url("../images/topbar.png") -226px 0 no-repeat;
+}
+nav div ul li a{
+    display: block;
+    height: 70px;
+    line-height: 76px;
+    font-size: 14px;
+    /*border-left: 1px solid #2d2d2d;*/
+}
+
+/*发现&我的音乐*/
+nav div ul li.discover{
+    width: 96px;
+
+}
+nav div ul li.discover a{
+    padding: 0 20px 0 19px;
+}
+/*朋友*/
+nav div ul li.friend{
+    width: 68px;
+}
+nav div ul li.friend a{
+    padding: 0 20px 0 19px;
+}
+/*下载*/
+nav div ul li.load{
+    position: relative;
+    width: 130px;
+    padding-left: 1px;
+}
+nav div ul li.load a{
+    padding: 0 40px 0 18px;
+}
+nav div ul li.load a em{
+    position: absolute;
+    top: 23px;
+    left: 90px;
+    width: 28px;
+    height: 19px;
+    background: url("../images/topbar.png") -190px 0 no-repeat;
+}
+/*搜索框*/
+nav .search{
+    float: left;
+    margin-left: 35px;
+}
+nav .search input{
+    margin-top: 21px;
+    width: 180px;
+    height: 31px;
+    padding-left: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    vertical-align: middle;
+    background: url("../images/topbar.png") 0 -550px no-repeat;
+}
+/*信息*/
+nav .email{
+    float: left;
+    width: 22px;
+    height: 17px;
+    margin: 28px 0 0 38px;
+    background: url("../images/topbar.png") 0 -60px no-repeat;
+}
+nav .email a{
+    display: block;
+    width: 22px;
+    height: 17px;
+}
+/*头像*/
+nav .info{
+    float: right;
+    width: 82px;
+    height: 70px;
+    margin-left: 27px;
+}
+nav .info .mask{
+    float: left;
+    width: 30px;
+    height: 31px;
+    margin-top: 21px;
+    background: url("../images/topbar.png") 0 -390px no-repeat;
+}
+nav .mask a{
+    display: block;
+    float: left;
+    width: 28px;
+    height: 28px;
+    margin: 1px 0 0 1px;
+    border-radius: 2px;
+    background: url("../images/mask.jpg") no-repeat;
+}
+/*昵称*/
+nav .info .nickname a{
+    display: block;
+    float: left;
+    width: 25px;
+    height: 12px;
+    margin: 31px 0 0 8px;
+
+}
+nav .info .nickname em{
+    display: block;
+    margin: 36px 0 0 7px;
+    float: left;
+    width: 12px;
+    height: 7px;
+    background: url("../images/topbar.png") -228px -380px no-repeat ;
+}
+/*登录*/
+
+/*分割红线*/
+.col{
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 5px;
+    background: url("../images/topbar.png") 0 -230px repeat-x;
+}
+.col .navshadow{
+    width: 100%;
+    float: left;
+    height: 2px;
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    background: url("../images/navshadow.png") repeat-x;
+}
+/*contain*/
+.contain .c .mymusic{
+    float: left;
+    width: 100%;
+    height: 700px;
+}
+/*歌单样式*/
+.contain .c .mymusic .orderName{
+    position: fixed;
+    top: 75px;
+    width: 240px;
+    height: 100%;
+    border-left: 1px solid rgb(211, 211, 211);
+    border-right: 1px solid rgb(211, 211, 211);
+    background-color: #f9f9f9;
+}
+/*新建*/
+.contain .c .mymusic .orderName .new{
+    width: 50px;
+    height: 20px;
+    position: absolute;
+    top: 45px;
+    left: 179px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: url("../images/button.png") -1px -97px no-repeat;
+}
+.contain .c .mymusic .orderName .new a{
+    display: block;
+    /*width: 30px;
+    height: 20px;*/
+    color: #515151;
+    padding-left: 19px;
+    /*vertical-align: middle;*/
+    line-height: 20px;
+}
+/*歌单列表*/
+.contain .c .mymusic .orderName #cre_menu{
+    position: fixed;
+    top: 155px;
+    left: 325px;
+    display: block;
+}
+.contain .c .mymusic .orderName #col_menu{
+    position: fixed;
+    top: 235px;
+    left: 325px;
+    display: block;
+}
+/*创建的歌单*/
+.contain .c .mymusic .orderName #create{
+    position: absolute;
+    top: 45px;
+    left: 20px;
+    font-size: 14px;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: "SimSun", "宋体";
+}
+
+.contain .c .mymusic .orderName #collect{
+    position: absolute;
+    top: 125px;
+    left: 20px;
+    font-size: 14px;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: "SimSun", "宋体";
+}
+.contain .c .mymusic .orderName h3 em{
+    display: inline-block;
+    vertical-align: middle;
+    border: 8px;
+    border-style: dashed dashed dashed solid;
+    border-color: #ccc transparent transparent transparent;
+    transform: rotate(0deg);
+}
+/*个人信息歌曲列表*/
+.contain .c .mymusic .main{
+    width: 100%;
+    height: 981px;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    background-color: #fff;
+}
+.contain .c .mymusic .main .r-mss{
+    float: right;
+    width: 740px;
+    height: 315px;
+    margin-top: 75px;
+
+}
+/*歌单图片*/
+.contain .c .mymusic .main .r-mss .m-info{
+    float: left;
+    margin-top: 35px;
+    margin-left: 36px;
+    width: 206px;
+    height: 206px;
+    border: 1px solid #ccc;
+}
+.contain .c .mymusic .main .r-mss .m-info img{
+    width: 200px;
+    height: 200px;
+    margin: 3px;
+}
+/*info*/
+.contain .c .mymusic .main .r-mss .cnt{
+    float: left;
+    margin-top: 35px;
+    margin-left: 26px;
+    width: 400px;
+    height: 200px;
+    /*background-color: #cc0000;*/
+}
+.contain .c .mymusic .main .r-mss .cnt h2{
+    display: block;
+    float: left;
+    height: 24px;
+    font-size: 20px;
+    line-height: 18px;
+    margin-top: 7px;
+    color: #333;
+    font-family: 微软雅黑;
+}
+.contain .c .mymusic .main .r-mss .cnt .music{
+    display: block;
+    float: left;
+    width: 54px;
+    height: 24px;
+    margin-right: 6px;
+    margin-top: 7px;
+    background: url("../images/icon.png") 0 -243px no-repeat;
+}
+
+.contain .c .mymusic .main .r-mss .cnt div{
+    float: left;
+    display: block;
+    margin-top: 9px;
+    width: 400px;
+    height: 35px;
+}
+.contain .c .mymusic .main .r-mss .cnt div img{
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+}
+.contain .c .mymusic .main .r-mss .cnt div a{
+    color: #0c73c2;
+}
+.contain .c .mymusic .main .r-mss .cnt div span{
+    margin-left: 15px;
+    color: #999;
+    line-height: 35px;
+}
+/*各种按钮*/
+.contain .c .mymusic .main .r-mss .cnt ul{
+    display: block;
+    float: left;
+    margin-top: 20px;
+    width: 400px;
+    height: 31px;
+}
+.contain .c .mymusic .main .r-mss .cnt ul li{
+    display: block;
+    float: left;
+}
+.contain .c .mymusic .main .r-mss .cnt ul li i{
+    display: block;
+    float: left;
+    text-decoration: none;
+    color: #333;
+}
+.contain .c .mymusic .main .r-mss .cnt ul li:nth-child(1){
+
+    width: 63px;
+    height: 31px;
+    border-radius: 4px 0 0 4px;
+    background: url("../images/button2.png") 0 -1650px no-repeat;
+    cursor: pointer;
+
+}
+.contain .c .mymusic .main .r-mss .cnt ul li:nth-child(1) a{
+    display: block;
+    float: left;
+    width: 54px;
+    height: 30px;
+    color: #fff;
+    margin-left: 6px;
+    padding-left: 2px;
+    line-height: 30px;
+}
+.contain .c .mymusic .main .r-mss .cnt ul li:nth-child(1) a i{
+    width: 20px;
+    height: 18px;
+    margin-top: 6px;
+    margin-right: 2px;
+    background: url("../images/button2.png") 0 -1622px no-repeat;
+}
+.contain .c .mymusic .main .r-mss .cnt ul li:nth-child(2){
+    width: 31px;
+    height: 31px;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+    background: url("../images/button2.png") 0 -1588px no-repeat;
+}
+.contain .c .mymusic .main .r-mss .cnt ul li:nth-child(3){
+    margin-left: 5px;
+    width: 57px;
+    height: 29px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    background: url("../images/button2.png") -1px -1355px no-repeat;
+}
+.contain .c .mymusic .main .r-mss .cnt ul li:nth-child(3) i{
+    color: #bebebe;
+    margin-left: 27px;
+    line-height: 28px;
+}
+.contain .c .mymusic .main .r-mss .cnt ul li:nth-child(4){
+    margin-left: 6px;
+    width: 57px;
+    height: 29px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    background: url("../images/button2.png") -1px -1226px no-repeat;
+}
+.contain .c .mymusic .main .r-mss .cnt ul li:nth-child(4) i{
+    margin-left: 27px;
+    line-height: 28px;
+}
+.contain .c .mymusic .main .r-mss .cnt ul li:nth-child(5){
+    margin-left: 6px;
+    width: 57px;
+    height: 29px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    background: url("../images/button2.png") -1px -2762px no-repeat;
+}
+.contain .c .mymusic .main .r-mss .cnt ul li:nth-child(5) i{
+    margin-left: 27px;
+    line-height: 28px;
+}
+.contain .c .mymusic .main .r-mss .cnt ul li:nth-child(6){
+    margin-left: 6px;
+    width: 57px;
+    height: 29px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    background: url("../images/button2.png") -1px -1466px no-repeat;
+}
+.contain .c .mymusic .main .r-mss .cnt ul li:nth-child(6) i{
+    margin-left: 27px;
+    line-height: 28px;
+}
+/*具体歌曲列表*/
+.contain .c .mymusic .main .r-bar{
+    display: block;
+    float: left;
+    width: 100%;
+    height: 35px;
+    margin-top: 34px;
+    border-bottom: 2px solid #c20c0c
+}
+.contain .c .mymusic .main .r-bar h3{
+    display: block;
+    float: left;
+    margin-left: 31px;
+    font-size: 20px;
+    line-height: 32px;
+    color: #333;
+    font-family: 微软雅黑;
+}
+.contain .c .mymusic .main .r-bar .sum{
+    display: inline-block;
+    float: left;
+    margin: 8px 0 0 20px;
+    color: #666;
+}
+.contain .c .mymusic .main .r-bar .times{
+    display: inline-block;
+    float: right;
+    margin-right: 10px;
+    color: #666;
+    margin-top: 4px;
+    font-family: simsun, \5b8b\4f53;
+}
+/*歌曲信息*/
+.contain .c .mymusic .main .r-order{
+
+
+}
+
+.contain .c .mymusic .main .r-order .songs{
+    display: block;
+    float: left;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #d9d9d9;
+}
+.contain .c .mymusic .main .r-order img{
+    margin-top: -3px;
+}
+.contain .c .mymusic .main .r-order .songs tr th{
+    display: inline-block;
+    float: left;
+    height: 35px;
+    /*background: url("../images/table.png") repeat-x;*/
+    background: url("../images/table.png") repeat-x;
+}
+.contain .c .mymusic .main .r-order .songs tr th div{
+    float: left;
+    height: 18px;
+    background: url("../images/table.png") 0 -56px no-repeat;
+    line-height: 18px;
+    padding: 7px 10px 8px 10px;
+    color: #666;
+    font-weight: normal;
+
+}
+.contain .c .mymusic .main .r-order .songs thead tr th:nth-child(1){
+    width: 71px;
+}
+.contain .c .mymusic .main .r-order .songs thead tr th:nth-child(2){
+    width: 301px;
+}
+.contain .c .mymusic .main .r-order .songs thead tr th:nth-child(3){
+    width: 109px;
+}
+.contain .c .mymusic .main .r-order .songs thead tr th:nth-child(4){
+    width: 101px;
+}
+.contain .c .mymusic .main .r-order .songs thead tr th:nth-child(5){
+    width: 147px;
+}
+.contain .c .mymusic .main .r-order .songs tbody tr{
+    height: 30px;
+}
+/*评论区域*/
+
+.contain .c .mymusic .main .com .header{
+    float: left;
+    margin-top: 40px;
+    width: 100%;
+    height: 33px;
+    border-bottom: 2px solid #c20c0c;
+}
+.contain .c .mymusic .main .com .header h3 {
+    display: block;
+    float: left;
+    margin-left: 31px;
+    font-size: 20px;
+    line-height: 28px;
+    color: #333;
+    font-family: 微软雅黑;
+}
+.contain .c .mymusic .main .com .header span{
+    display: block;
+    float: left;
+    width: 55px;
+    height: 14px;
+    margin: 8px 0 0 20px;
+}
+.contain .c .mymusic .main .com .con{
+    float: left;
+    width: 676px;
+    height: 101px;
+    margin: 20px 32px 0 32px;
+    position: relative;
+    left: 0;
+    top: 0;
+}
+.contain .c .mymusic .main .com .con span{
+    display: block;
+    float: left;
+    width: 50px;
+    height: 50px;
+}
+.contain .c .mymusic .main .com .con textarea{
+    display: block;
+    float: right;
+    width: 600px;
+    height: 50px;
+    padding: 5px 6px 6px 6px;
+    border: 1px solid #ccc;
+
+    overflow: hidden;
+    resize: none;
+    flex-direction: column;
+    text-transform: none;
+    outline: none;
+}
+.contain .c .mymusic .main .com .con div{
+    float: right;
+    width: 614px;
+    height: 25px;
+    padding-top: 13px;
+}
+.contain .c .mymusic .main .com .con div .face{
+    display: inline-block;
+    float: left;
+    width: 18px;
+    height: 18px;
+    margin: 3px 10px 0 0;
+    cursor: pointer;
+    background: url("../images/icon.png") -40px -490px no-repeat;
+}
+.contain .c .mymusic .main .com .con div .add{
+    display: inline-block;
+    float: left;
+    width: 18px;
+    height: 18px;
+    margin: 3px 0 0 0;
+    cursor: pointer;
+    background: url("../images/icon.png") -60px -490px no-repeat;
+}
+.contain .c .mymusic .main .com .con div a{
+    display: inline-block;
+    float: right;
+    width: 46px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    color: #fff;
+    background: url("../images/button.png") -84px -64px no-repeat;
+}
+.contain .c .mymusic .main .com .con div .num{
+     display: inline-block;
+     float: right;
+     width: 21px;
+     height: 25px;
+     line-height: 25px;
+     margin-right: 10px;
+ }
+/*评论区的箭头*/
+.contain .c .mymusic .main .com .con .arr span{
+    position: absolute;
+    left: 55px;
+    top: 11px;
+    font-size: 15px;
+    width: 8px;
+    color: #cdcdcd;
+    overflow: hidden;
+}
+.contain .c .mymusic .main .com .con .arr i{
+    position: absolute;
+    left: 62px;
+    top: 13px;
+    display: block;
+    width: 1px;
+    height: 11px;
+    /*color: #fff;*/
+    background-color: #fff;
+    font-size: 10px;
+}
+
+
+/*回到顶部*/
+.c #backup{
+    display: none;
+    position: fixed;
+    width: 49px;
+    height: 44px;
+    bottom: 160px;
+    left: 50%;
+    margin-left: 508px;
+    text-indent: -9999px;
+    background: url("../images/sprite.png") -265px -47px no-repeat ;
+}
